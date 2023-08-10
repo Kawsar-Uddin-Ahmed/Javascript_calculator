@@ -1,0 +1,39 @@
+<!---Every object has a method and property.document is an object. write() is
+the method of the document object. innnerHTML or getElementById() is the 
+property of the document object.---->
+
+<!---1) You can use it to get the internal HTML content of any HTML element as an HTML string. 2) You can also use it to set or change elements' innerHTML content -->
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>The Document Object</h1>
+<h2>The getElementsByClassName() Method</h2>
+
+<p>Change the text of the first element with class="example":</p>
+
+<div class="example">Element1</div>
+<div class="example">Element2</div>
+
+<script>
+const collection = document.getElementsByClassName("example");//It brings 
+                                                      //everthing under all 
+                                                      //example class 
+                                                      //as an array.
+collection[0].innerHTML = "Hello World!";
+</script>
+<p>hi</p>
+<p>hello</p>
+<p>hi</p>
+<script>
+var a = document.getElementsByTagName("p");//It brings everthing under all p tag
+                                           //as an array.
+a[1].innerHTML = "Hacked";
+for(let x = 2 ; x<a.length ; x++)
+{
+	a[x].innerHTML = "Again Hacked";
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!----
+element.cloneNode() clones an element and returns the resulting node.
+
+document.createElement(element) creates a new element node. 
+
+document.createTextNode(text) creates a new text node.//you can write text between
+the tags.
+
+The HTML element is everything from the start tag to the end tag:
+
+---->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Another Dom_3</title>
+</head>
+<body>
+	<div id ="demo">some content</div>
+
+<script>
+ var a = document.createElement("p"); ///Here I will create a new paragraph;
+ var b = document.createTextNode("hacked again");//Here i will creat a text in the paragraph.
+
+a.appendChild(b); ///It will add the text inside the paragraph.
+
+ var c = document.getElementById("demo");
+ c.appendChild(a);//It will append the paragraph in div because it's id is demo.//here div is the parent of the new paragraph.
+
+
+</script>
+
+<div id="d">
+  <p id="p1">This is a paragraph.</p>
+  <p id="p2">This is another paragraph.</p>
+</div>
+
+<script>
+	var m = document.createElement("p");
+	var n = document.createTextNode("This is new paragraph added");
+    m.appendChild(n); //everthing goes inside the m variable and make paragraph.
+    var div = document.getElementById("d");
+    div.appendChild(m);//here div is the parent of the new paragraph because pargraph is added inside the div tag.
+    var p1 = document.getElementById("p1");
+    div.removeChild(p1);///here div is the parent of the p1 id paragraph.
+
+<html>
+	<head>
+		<title>Page Title</title>
+	</head>
+	<body>
+		<button onclick="show();">Click Me</button>
+	</body>
+</html>
+</script>
+<div id="d2">
+  <p id="pp">This is a paragraph.</p>
+  <p id="pz">This is fourth paragraph.</p>
+</div>
+<script >
+	var y = document.createElement("p");
+	var x = document.createTextNode("This is replaced paragraph");
+	y.appendChild(x);
+	var div2 = document.getElementById("d2");
+	var p2 = document.getElementById("pp");
+	div2.replaceChild(y,p2); //here we will replace pp with y.
+</script>
+</body>
+</html>

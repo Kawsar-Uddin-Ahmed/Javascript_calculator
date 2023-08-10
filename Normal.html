@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html>
+    
+<head>
+        
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Architects+Daughter">
+<link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+
+<!--<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>-->
+<script src="Normal.js"></script>
+
+<title>bWAPP - XSS</title>
+
+</head>
+
+<body>
+    
+<header>
+
+<h1>bWAPP</h1>
+
+<h2>an extremely buggy web app !</h2>
+
+</header>    
+
+<div id="menu">
+      
+    <table>
+        
+        <tr>
+            
+            <td><a href="portal.php">Bugs</a></td>
+            <td><a href="password_change.php">Change Password</a></td>
+            <td><a href="user_extra.php">Create User</a></td>
+            <td><a href="security_level_set.php">Set Security Level</a></td>
+            <td><a href="reset.php" onclick="return confirm('All settings will be cleared. Are you sure?');">Reset</a></td>            
+            <td><a href="credits.php">Credits</a></td>
+            <td><a href="http://itsecgames.blogspot.com" target="_blank">Blog</a></td>
+            <td><a href="logout.php" onclick="return confirm('Are you sure you want to leave?');">Logout</a></td>
+            <td><font color="red">Welcome Bee</font></td>
+            
+        </tr>
+        
+    </table>   
+   
+</div> 
+
+<div id="main">
+    
+    <h1>XSS - Reflected (GET)</h1>
+
+    <p>Enter your first and last name:</p>
+
+    <form action="/bWAPP/xss_get.php" method="GET">
+
+        <p><label for="firstname">First name:</label><br />
+        <input type="text" id="firstname" name="firstname"></p>
+
+        <p><label for="lastname">Last name:</label><br />
+        <input type="text" id="lastname" name="lastname"></p>
+
+        <button type="submit" name="form" value="submit">Go</button>  
+
+    </form>
+
+    <br />
+    Welcome kawsar uddin
+</div>
+    
+<div id="side">    
+    
+    <a href="http://itsecgames.blogspot.com" target="blank_" class="button"><img src="./images/blogger.png"></a>
+    <a href="http://be.linkedin.com/in/malikmesellem" target="blank_" class="button"><img src="./images/linkedin.png"></a>
+    <a href="http://twitter.com/MME_IT" target="blank_" class="button"><img src="./images/twitter.png"></a>
+    <a href="http://www.facebook.com/pages/MME-IT-Audits-Security/104153019664877" target="blank_" class="button"><img src="./images/facebook.png"></a>
+
+</div>     
+    
+<div id="disclaimer">
+          
+    <p>bWAPP is for educational purposes only / Follow <a href="http://twitter.com/MME_IT" target="_blank">@MME_IT</a> on Twitter and ask for our cheat sheet, containing all solutions! / Need a <a href="http://www.mmeit.be/bWAPP/training.htm" target="_blank">training</a>? / &copy; 2014 MME BVBA</p>
+   
+</div>
+    
+<div id="bee">
+    
+    <img src="./images/bee_1.png">
+    
+</div>
+    
+<div id="security_level">
+  
+    <form action="/bWAPP/xss_get.php" method="POST">
+        
+        <label>Set your security level:</label><br />
+        
+        <select name="security_level">
+            
+            <option value="0">low</option>
+            <option value="1">medium</option>
+            <option value="2">high</option> 
+            
+        </select>
+        
+        <button type="submit" name="form_security_level" value="submit">Set</button>
+        <font size="4">Current: <b>high</b></font>
+        
+    </form>   
+    
+</div>
+    
+<div id="bug">
+
+    <form action="/bWAPP/xss_get.php" method="POST">
+        
+        <label>Choose your bug:</label><br />
+        
+        <select name="bug">
+   
+<option value='0'>----------------------  bWAPP v1.9+  ---------------------</option><option value='1'>/ A1 - Injection /</option><option value='2'>HTML Injection - Reflected (GET)</option><option value='3'>HTML Injection - Reflected (POST)</option><option value='4'>HTML Injection - Reflected (Current URL)</option><option value='5'>HTML Injection - Stored (Blog)</option><option value='6'>LDAP Injection (Search)</option><option value='7'>Mail Header Injection (SMTP)</option><option value='8'>OS Command Injection</option><option value='9'>OS Command Injection - Blind</option><option value='10'>PHP Code Injection</option><option value='11'>Server-Side Includes (SSI) Injection</option><option value='12'>SQL Injection (Search/GET)</option><option value='13'>SQL Injection (Search/POST)</option><option value='14'>SQL Injection (Search/CAPTCHA)</option><option value='15'>SQL Injection (Select/GET)</option><option value='16'>SQL Injection (Login Form)</option><option value='17'>SQL Injection - Stored (Blog)</option><option value='18'>SQL Injection - Stored (XML)</option><option value='19'>SQL Injection - Blind (Search)</option><option value='20'>SQL Injection - Blind (Web Services/SOAP)</option><option value='21'>XML/XPath Injection (Search)</option><option value='22'>XML/XPath Injection (Login Form)</option><option value='23'>/</option><option value='24'>/ A2 - Broken Auth. & Session Mgmt. /</option><option value='25'>Broken Authentication - Forgotten Function</option><option value='26'>Broken Authentication - Insecure Login Forms</option><option value='27'>Broken Authentication - Logout Management</option><option value='28'>Broken Authentication - Password Attacks</option><option value='29'>Broken Authentication - Weak Passwords</option><option value='30'>Session Management - Administrative Portals</option><option value='31'>Session Management - Cookies (HTTPOnly)</option><option value='32'>Session Management - Cookies (Secure)</option><option value='33'>Session Management - Session ID in URL</option><option value='34'>Session Management - Strong Sessions</option><option value='35'>/</option><option value='36'>/ A3 - Cross-Site Scripting (XSS) /</option><option value='37'>Cross-Site Scripting - Reflected (GET)</option><option value='38'>Cross-Site Scripting - Reflected (POST)</option><option value='39'>Cross-Site Scripting - Reflected (JSON)</option><option value='40'>Cross-Site Scripting - Reflected (AJAX/JSON)</option><option value='41'>Cross-Site Scripting - Reflected (AJAX/XML)</option><option value='42'>Cross-Site Scripting - Reflected (Back Button)</option><option value='43'>Cross-Site Scripting - Reflected (Custom Header)</option><option value='44'>Cross-Site Scripting - Reflected (Eval)</option><option value='45'>Cross-Site Scripting - Reflected (HREF)</option><option value='46'>Cross-Site Scripting - Reflected (PHP_SELF)</option><option value='47'>Cross-Site Scripting - Reflected (Referer)</option><option value='48'>Cross-Site Scripting - Reflected (User-Agent)</option><option value='49'>Cross-Site Scripting - Stored (Blog)</option><option value='50'>Cross-Site Scripting - Stored (Change Secret)</option><option value='51'>Cross-Site Scripting - Stored (Cookies)</option><option value='52'>/</option><option value='53'>/ A4 - Insecure Direct Object References /</option><option value='54'>Insecure DOR (Change Secret)</option><option value='55'>Insecure DOR (Reset Secret)</option><option value='56'>Insecure DOR (Order Tickets)</option><option value='57'>/</option><option value='58'>/ A5 - Security Misconfiguration /</option><option value='59'>Arbitrary File Access (Samba)</option><option value='60'>Cross-Domain Policy File (Flash)</option><option value='61'>Cross-Origin Resource Sharing (AJAX)</option><option value='62'>Cross-Site Tracing (XST)</option><option value='63'>Denial-of-Service (Slow HTTP DoS)</option><option value='64'>Denial-of-Service (XML Bomb)</option><option value='65'>Insecure FTP Configuration</option><option value='66'>Insecure SNMP Configuration</option><option value='67'>Insecure WebDAV Configuration</option><option value='68'>Local Privilege Escalation (udev)</option><option value='69'>Man-in-the-Middle Attack (HTTP)</option><option value='70'>Man-in-the-Middle Attack (SMTP)</option><option value='71'>Old/Backup & Unreferenced Files</option><option value='72'>Robots File</option><option value='73'>/</option><option value='74'>/ A6 - Sensitive Data Exposure /</option><option value='75'>Heartbleed Vulnerability</option><option value='76'>Host Header Attack (Reset Poisoning)</option><option value='77'>HTML5 Web Storage (Secret)</option><option value='78'>Insufficient Transport Layer Protection</option><option value='79'>Text Files (Accounts)</option><option value='80'>/</option><option value='81'>/ A7 - Missing Functional Level Access Control /</option><option value='82'>Directory Traversal - Directories</option><option value='83'>Directory Traversal - Files</option><option value='84'>Host Header Attack (Cache Poisoning)</option><option value='85'>Host Header Attack (Reset Poisoning)</option><option value='86'>Remote & Local File Inclusion (RFI/LFI)</option><option value='87'>Restrict Device Access</option><option value='88'>Restrict Folder Access</option><option value='89'>Server Side Request Forgery (SSRF)</option><option value='90'>XML External Entity Attacks (XXE)</option><option value='91'>/</option><option value='92'>/ A8 - Cross-Site Request Forgery (CSRF) /</option><option value='93'>Cross-Site Request Forgery (Change Password)</option><option value='94'>Cross-Site Request Forgery (Change Secret)</option><option value='95'>Cross-Site Request Forgery (Transfer Amount)</option><option value='96'>/</option><option value='97'>/ A9 - Using Known Vulnerable Components /</option><option value='98'>Heartbleed Vulnerability</option><option value='99'>PHP CGI Remote Code Execution</option><option value='100'>PHP Eval Function</option><option value='101'>/</option><option value='102'>/ A10 - Unvalidated Redirects & Forwards /</option><option value='103'>Unvalidated Redirects & Forwards (1)</option><option value='104'>Unvalidated Redirects & Forwards (2)</option><option value='105'>/</option><option value='106'>/ Other bugs... /</option><option value='107'>ClickJacking (Movie Tickets)</option><option value='108'>Client-Side Validation (Password)</option><option value='109'>HTTP Parameter Pollution</option><option value='110'>HTTP Response Splitting</option><option value='111'>HTTP Verb Tampering</option><option value='112'>Information Disclosure - Favicon</option><option value='113'>Information Disclosure - Headers</option><option value='114'>Information Disclosure - PHP version</option><option value='115'>Information Disclosure - Robots File</option><option value='116'>Unrestricted File Upload</option><option value='117'>---------------------------  Extras  --------------------------</option><option value='118'>A.I.M. - No-authentication Mode</option><option value='119'>Client Access Policy File</option><option value='120'>Cross-Domain Policy File</option><option value='121'>Evil 666 Fuzzing Page</option><option value='122'>Manual Intervention Required!</option><option value='123'>Unprotected Admin Portal</option><option value='124'>We Steal Secrets... (html)</option><option value='125'>We Steal Secrets... (plain)</option><option value='126'>WSDL File (Web Services/SOAP)</option>
+
+        </select>
+        
+        <button type="submit" name="form_bug" value="submit">Hack</button>
+        
+    </form>
+    
+</div>
+      
+</body>
+    
+</html>

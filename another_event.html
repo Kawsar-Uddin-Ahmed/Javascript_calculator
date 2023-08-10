@@ -1,0 +1,64 @@
+<!---
+You can write JavaScript code that executes when an event occurs, such as when a user clicks an HTML element, moves the mouse, or submits a form.
+
+When an event occurs on a target element, a handler function is executed. 
+
+Event is also known as call back function
+
+Common HTML events include:  --->
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Page Title</title>
+	</head>
+	<body>
+		<button onclick="show();">Click Me</button><!--onclick() event handler-->
+	</body>
+	<script type="text/javascript">
+		function show()
+		{
+			alert("The onclick event is used");
+		}
+	</script><br><br>
+	<a href="another_event.html" onload="load();">ok loaded</a><br><!--when the page will load the onload event handler will start working automatically ---->
+	<a>For onchange: <input type="text" id="name" onchange="changing()"></a><br><!-- changes the input when you press enter according to the function included in the onchange event handler keyword -->
+	<script type="text/javascript">
+		function load()
+		{
+			document.write("Page is loaded","<br>");
+		}
+		
+		function changing()
+		{
+			var x = document.getElementById("name");
+			x.value = x.value.toUpperCase();//change the input in uppercase
+		}
+	</script><br>
+	<script type="text/javascript">
+		
+		var am = function(a,b)//function is variable
+		{
+			return a+b;
+		};
+		var bm = [function(a,b){return a*b;},2,3,4,6];//function in array.
+		window.onload = document.write(am(5,6),"<br>");//when page will load the function will run. window.onload is an event handler.
+		window.onload = document.write(bm[0](5,6),"<br>");
+	var cm = {array:function(a,b,c){ return a*b*c},age:43};//function in object
+		window.onload = document.write(cm["array"](5,6,8),"<br>");
+	</script>
+	  <button id="d">Start</button>
+	  <script type="text/javascript">
+	  	window.onload = function()
+	  	{
+	  		var btn = document.getElementById("d");
+	  		btn.addEventListener("click",myFunction);//added event handler click without removing other event handler.
+	  	}
+	  	function myFunction()
+	  	{
+	  		document.write(Math.random());
+	  		btn.removeEventListener("click",myFunction);//removing event click handler.
+	  	}
+	  </script>
+</html>
